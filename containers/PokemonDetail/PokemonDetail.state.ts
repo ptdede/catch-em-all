@@ -12,7 +12,7 @@ export const usePokemonDetail = (name: string) => {
     }
   )
 
-  const { colors } = usePalette(data.pokemon.sprites.front_default)
+  const { colors } = usePalette(data ? data.pokemon.sprites.front_default : "")
 
   return {
     data,

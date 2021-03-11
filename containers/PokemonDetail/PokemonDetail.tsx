@@ -1,9 +1,13 @@
+import { useRouter } from 'next/router'
 import { Loading } from '../../components'
 import { POKEMONS_TYPES } from '../../constants/pokemon-types'
 import { usePokemonDetail } from './PokemonDetail.state'
 import { TPokemonDetail } from './PokemonDetail.styled'
 
-export const PokemonDetail = ({ name }) => {
+export const PokemonDetail = () => {
+  const router = useRouter()
+  const { name } = router.query as { name: string }
+
   const { data, error, colors, loading } = usePokemonDetail(name)
   
   if (error) return <p>error</p>
