@@ -18,7 +18,9 @@ class MyDocument extends Document {
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Hind:wght@300;600&display=swap"
             media="print"
-            onLoad="this.media='all'"
+            onLoad={function () {
+              this.media='all'
+            }}
           />
           <noscript>
             <link
