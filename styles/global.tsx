@@ -1,4 +1,4 @@
-import { css, Global, keyframes } from '@emotion/react'
+import { css, Global } from '@emotion/react'
 import { normalize } from './normalize'
 
 export const globalStyles = (
