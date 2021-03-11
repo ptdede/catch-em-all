@@ -1,19 +1,22 @@
 import { HTMLAttributes } from 'react'
 import Image from 'next/image'
+import { AppWrapperElement } from './AppWrapper.styled'
 
 type AppWrapperProps = {
 } & HTMLAttributes<HTMLDivElement>
 
 export const AppWrapper = ({ children }: AppWrapperProps) => {
   return(
-    <div>
-      <Image
-        src="/logo.png"
-        alt="Pokemon Logo"
-        width={500}
-        height={500}
-      />
+    <AppWrapperElement.Wrapper>
+      <AppWrapperElement.ImageWrapper>
+        <Image
+          src="/logo.png"
+          alt="Pokemon Logo"
+          layout="fill"
+          objectFit="contain"
+        />
+      </AppWrapperElement.ImageWrapper>
       {children}
-    </div>
+    </AppWrapperElement.Wrapper>
   )
 }
