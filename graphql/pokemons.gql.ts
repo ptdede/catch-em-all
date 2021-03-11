@@ -16,12 +16,12 @@ export interface IPokemonItem {
   owned?: number
 }
 
-export interface IPokemonArgs {
+export interface IPokemonsArgs {
   limit: number,
   offset: number
 }
 
-export interface IPokemonResult {
+export interface IPokemonsResult {
   pokemons: IPokemonList
 }
 
@@ -45,7 +45,7 @@ query pokemons(
 }
 `
 
-export const pokemonsQueryVariables: IPokemonArgs = {
+export const pokemonsQueryVariables: IPokemonsArgs = {
   limit: 20,
   offset: 0
 }

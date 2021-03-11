@@ -41,11 +41,14 @@ const Image = styled.img`
 `
 
 const ContentWrapper = styled.div`
+  padding-top: 10rem;
+  padding-bottom: 6rem;
 
   @media screen and (min-width: 600px) {
     width: 100%;
     max-width: 1040px;
     margin: 0 auto;
+    padding-top: 13rem;
   }
 `
 
