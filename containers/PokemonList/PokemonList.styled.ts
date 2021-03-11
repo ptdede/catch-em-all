@@ -6,6 +6,10 @@ const Wrapper = styled.div`
   align-items: center;
   padding-top: 10rem;
   padding-bottom: 6rem;
+
+  @media screen and (min-width: 600px) {
+    padding-top: 13rem;
+  }
 `
 
 const PokeWrapper = styled.div`
@@ -23,6 +27,11 @@ const LoadMore = styled.button`
   border: solid #ececec 1px;
   font-size: .9em;
   background-color: #ffcb05;
+  transition: all 300ms ease;
+
+  &:hover {
+    transform: scale(.9);
+  }
 `
 
 const LoadMoreWrapper = styled.div`

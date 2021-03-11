@@ -13,7 +13,9 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
           alt="Pokemon Logo"
         />
       </AppWrapperElement.ImageWrapper>
-      {children}
+      <AppWrapperElement.ContentWrapper>
+        {children}
+      </AppWrapperElement.ContentWrapper>
     </AppWrapperElement.Wrapper>
   )
 }
