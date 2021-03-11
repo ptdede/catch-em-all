@@ -1,5 +1,4 @@
 import { HTMLAttributes } from 'react'
-import Image from 'next/image'
 import { AppWrapperElement } from './AppWrapper.styled'
 
 type AppWrapperProps = {
@@ -9,11 +8,9 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
   return(
     <AppWrapperElement.Wrapper>
       <AppWrapperElement.ImageWrapper>
-        <Image
-          src="/logo.png"
+        <AppWrapperElement.Image
+          src={require('../../public/logo.png')}
           alt="Pokemon Logo"
-          layout="fill"
-          objectFit="contain"
         />
       </AppWrapperElement.ImageWrapper>
       {children}
