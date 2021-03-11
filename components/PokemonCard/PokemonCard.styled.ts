@@ -3,7 +3,10 @@ import styled from '@emotion/styled';
 const Wrapper = styled.div`
   width: 100%;
   max-width: 50%;
-  cursor: pointer;
+
+  @media screen and (min-width: 600px) {
+    max-width: 25%;
+  }
 `
 
 const Inner = styled.div<{ color: string }>`
@@ -14,15 +17,26 @@ const Inner = styled.div<{ color: string }>`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
+  cursor: pointer;
   background-color: ${p => p.color ?? "#ffffff"};
-  transition: background-color 600ms ease-in-out;
+  transition: background-color 600ms, transform 200ms, opacity 200ms;
+  transition-timing-function: ease-in-out;
+
+  &:hover {
+    transform: scale(.96);
+    opacity: .9;
+  }
 `
 
 const Image = styled.img`
-  width: 96px;
-  height: 96px;
+  width: 120px;
+  height: 120px;
   object-fit: contain;
+
+  @media screen and (min-width: 600px) {
+    width: 140px;
+    height: 140px;
+  }
 `
 
 const Name = styled.p`
@@ -31,15 +45,25 @@ const Name = styled.p`
   font-weight: 700;
   letter-spacing: 0.1em;
   color: #ffffff;
-  background-color: rgba(111, 111, 111, .6);
+  background-color: rgba(0,58,112, .7);
   padding: .3rem .6rem;
   border-radius: 1000px;
   margin-top: .5rem;
 `
 
+const Owned = styled.p`
+  color: #ffffff;
+  padding: .2rem .4rem;
+  border-radius: 1000px;
+  font-size: .6em;
+  background-color: rgba(0,58,112, .6);
+  opacity: .7;
+`
+
 export const PokemonCardElement = {
-  Wrapper,
+  Name,
+  Owned,
   Image,
   Inner,
-  Name
+  Wrapper,
 }

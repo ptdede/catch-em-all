@@ -13,6 +13,7 @@ export interface IPokemonItem {
   name: string
   image: string
   id: number
+  owned?: number
 }
 
 export interface IPokemonArgs {

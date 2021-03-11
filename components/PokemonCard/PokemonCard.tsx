@@ -1,7 +1,5 @@
 import { IPokemonItem } from '../../graphql'
 import { PokemonCardElement } from './PokemonCard.styled'
-import ColorThief from "colorthief";
-import { useRef } from 'react';
 import { usePalette } from '../../hooks/usePallete';
 
 type PokemonCardProps = {
@@ -15,6 +13,9 @@ export const PokemonCard = ({ pokemon }: PokemonCardProps) => {
   return (
     <PokemonCardElement.Wrapper>
       <PokemonCardElement.Inner color={colors.dominant}>
+        <PokemonCardElement.Owned>
+          owned: { pokemon.owned ?? "0"}
+        </PokemonCardElement.Owned>
         <PokemonCardElement.Image
           src={pokemon.image}
           alt={pokemon.name}
