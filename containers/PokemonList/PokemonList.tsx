@@ -1,4 +1,7 @@
+import { Loading } from '../../components';
+import { PokemonCard } from '../../components/PokemonCard/PokemonCard';
 import { usePokemonList } from './PokemonList.state';
+import { PokemonListElement } from './PokemonList.styled';
 
 export const PokemonList = () => {
   const {
@@ -11,19 +14,35 @@ export const PokemonList = () => {
 
   if (error) return <p>error</p>
 
-  if (loading && !loadingMorePokemon) return <div>Loading</div>
+  if (loading && !loadingMorePokemon) return <Loading />
 
   const { pokemons } = data
 
   return (
-    <div>
-      <ol>
+    <PokemonListElement.Wrapper>
+      <PokemonListElement.PokeWrapper>
         {
-          pokemons.results.map(res => <li key={`pokemon-${res.id}`}>{res.name}</li>)
+          pokemons.results.map(
+            pokemon => 
+              <PokemonCard 
+                key={`pokemon-${pokemon.id}`}
+                pokemon={pokemon} />
+          )
         }
-      </ol>
+      </PokemonListElement.PokeWrapper>
       
-      <button onClick={loadMorePokemon}>fetch more</button>
-    </div>
+      <PokemonListElement.LoadMoreWrapper>
+        {
+          loadingMorePokemon 
+            ? <Loading /> 
+            : (
+              <PokemonListElement.LoadMore
+                onClick={loadMorePokemon}>
+                  Load More
+              </PokemonListElement.LoadMore>
+            )
+        }
+      </PokemonListElement.LoadMoreWrapper>
+    </PokemonListElement.Wrapper>
   )
 }
