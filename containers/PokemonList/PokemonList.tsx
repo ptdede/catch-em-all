@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { Loading } from '../../components';
 import { PokemonCard } from '../../components/PokemonCard/PokemonCard';
 import { usePokemonList } from './PokemonList.state';
@@ -24,9 +25,14 @@ export const PokemonList = () => {
         {
           pokemons.results.map(
             pokemon => 
-              <PokemonCard 
-                key={`pokemon-${pokemon.id}`}
-                pokemon={pokemon} />
+            <Link
+              key={`pokemon-${pokemon.id}`}
+              href={`/pokemon/${pokemon.name}`}
+            >
+              <PokemonListElement.LinkWrapper>
+                <PokemonCard pokemon={pokemon} />
+              </PokemonListElement.LinkWrapper>
+            </Link>
           )
         }
       </PokemonListElement.PokeWrapper>
