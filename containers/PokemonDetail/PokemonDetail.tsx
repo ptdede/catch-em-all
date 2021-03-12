@@ -7,12 +7,11 @@ import { TPokemonDetail } from './PokemonDetail.styled'
 export const PokemonDetail = () => {
   const router = useRouter()
   const { name } = router.query as { name: string }
-
   const { data, error, colors, loading } = usePokemonDetail(name)
   
-  if (error) return <p>error</p>
+  if (loading || !name) return <Loading />
 
-  if (loading) return <Loading />
+  if (error) return <p>error</p>
 
   const { pokemon } = data
 

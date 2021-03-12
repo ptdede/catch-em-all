@@ -3,7 +3,7 @@ import { IPokemonArgs, IPokemonResult, POKEMON_GQL } from '../../graphql/pokemon
 import { usePalette } from '../../hooks'
 
 export const usePokemonDetail = (name: string) => {
-  const { loading, error, data } = useQuery<IPokemonResult, IPokemonArgs>(
+  const { loading, error: gqlError, data } = useQuery<IPokemonResult, IPokemonArgs>(
     POKEMON_GQL,
     {
       variables: {
@@ -11,6 +11,8 @@ export const usePokemonDetail = (name: string) => {
       }
     }
   )
+
+  const error = gqlError || !data || !data.pokemon.status
 
   const { colors } = usePalette(!!data && !!data.pokemon.sprites ? data.pokemon.sprites.front_default : "")
 
