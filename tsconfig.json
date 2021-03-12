@@ -16,7 +16,23 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@libs/*": ["libs/*"],
+      "@libs": ["libs"],
+      "@hooks/*": ["hooks/*"],
+      "@hooks": ["hooks"],
+      "@styles/*": ["styles/*"],
+      "@graphql/*": ["graphql/*"],
+      "@graphql": ["graphql"],
+      "@constants/*": ["constants/*"],
+      "@constants": ["constants"],
+      "@containers/*": ["containers/*"],
+      "@containers": ["containers"],
+      "@components/*": ["components/*"],
+      "@components": ["components"]
+    }
   },
   "include": [
     "next-env.d.ts",

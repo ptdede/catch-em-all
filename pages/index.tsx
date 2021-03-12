@@ -1,6 +1,6 @@
-import { PokemonList } from '../containers';
-import { pokemonsQueryVariables, POKEMONS_GQL } from '../graphql/pokemons.gql';
-import { initializeApollo } from '../libs/apolloClient';
+import { PokemonList } from '@containers';
+import { initializeApollo } from '@libs/apolloClient';
+import { pokemonsQueryVariables, POKEMONS_GQL } from '@graphql/pokemons.gql';
 
 export async function getStaticProps() {
   const apolloClient = initializeApollo()

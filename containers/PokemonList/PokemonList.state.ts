@@ -1,5 +1,5 @@
 import { NetworkStatus, useQuery } from '@apollo/client'
-import { IPokemonsArgs, IPokemonsResult, pokemonsQueryVariables, POKEMONS_GQL } from '../../graphql/pokemons.gql'
+import { IPokemonsArgs, IPokemonsResult, pokemonsQueryVariables, POKEMONS_GQL } from '@graphql/pokemons.gql'
 
 export const usePokemonList = () => {
   const { loading, error, data, fetchMore, networkStatus } = useQuery<IPokemonsResult, IPokemonsArgs>(

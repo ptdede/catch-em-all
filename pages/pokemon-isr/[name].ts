@@ -11,10 +11,10 @@
  * Will hide this route temporarily.
  */
 
-import { PokemonDetail } from '../../containers';
-import { IPokemonList, pokemonsQueryVariables, POKEMONS_GQL } from '../../graphql';
-import { POKEMON_GQL } from '../../graphql/pokemon.gql';
-import { initializeApollo } from '../../libs/apolloClient';
+import { PokemonDetail } from '@containers';
+import { POKEMON_GQL } from '@graphql/pokemon.gql';
+import { initializeApollo } from '@libs/apolloClient';
+import { IPokemonList, pokemonsQueryVariables, POKEMONS_GQL } from '@graphql/pokemons.gql';
 
 type StaticPathParam = {
   name: string

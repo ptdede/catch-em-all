@@ -1,6 +1,6 @@
+import { Loading } from '@components'
 import { useRouter } from 'next/router'
-import { Loading } from '../../components'
-import { POKEMONS_TYPES } from '../../constants/pokemon-types'
+import { POKEMONS_TYPES } from '@constants/pokemon-types'
 import { usePokemonDetail } from './PokemonDetail.state'
 import { TPokemonDetail } from './PokemonDetail.styled'
 

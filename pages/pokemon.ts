@@ -1,3 +1,3 @@
-import { PokemonDetail } from '../containers';
+import { PokemonDetail } from '@containers';
 
 export default PokemonDetail

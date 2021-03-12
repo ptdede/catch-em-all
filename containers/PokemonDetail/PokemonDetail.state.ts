@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client'
-import { IPokemonArgs, IPokemonResult, POKEMON_GQL } from '../../graphql/pokemon.gql'
-import { usePalette } from '../../hooks'
+import { usePalette } from '@hooks/usePalette'
+import { IPokemonArgs, IPokemonResult, POKEMON_GQL } from '@graphql/pokemon.gql'
 
 export const usePokemonDetail = (name: string) => {
   const { loading, error: gqlError, data } = useQuery<IPokemonResult, IPokemonArgs>(

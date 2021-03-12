@@ -1,6 +1,5 @@
 import Link from 'next/link'
-import { Loading } from '../../components';
-import { PokemonCard } from '../../components/PokemonCard/PokemonCard';
+import { Loading, PokemonCard } from '@components';
 import { usePokemonList } from './PokemonList.state';
 import { PokemonListElement } from './PokemonList.styled';
 
