@@ -22,15 +22,15 @@ export const usePalette = (imageUrl: string) => {
     image.crossOrigin = 'Anonymous';
 
     image.onload = function () {
-        const colorThief = new ColorThief();
-        const palettes = colorThief.getPalette(this, 10);
+      const colorThief = new ColorThief();
+      const palettes = colorThief.getPalette(this, 10);
 
-        const mapOfPalet = palettes.map(palette => arrayOfColorsToStyle(palette))
+      const mapOfPalette = palettes.map(palette => arrayOfColorsToStyle(palette))
 
-        setColors({
-          dominant: mapOfPalet[0],
-          palette: mapOfPalet
-        })
+      setColors({
+        dominant: mapOfPalette[0],
+        palette: mapOfPalette
+      })
     }
   }, [imageUrl])
 
