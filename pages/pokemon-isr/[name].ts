@@ -34,7 +34,9 @@ export async function getStaticPaths() {
     params: { name: pokemon.name }
   }))
 
-  return { paths, fallback: true }
+  // TODO: To enable ISR, don't forget to change this to true
+  // to make static generation work, leave this value false.
+  return { paths, fallback: false }
 }
 
 export async function getStaticProps({ params }: { params: StaticPathParam }) {
