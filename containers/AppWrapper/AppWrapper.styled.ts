@@ -41,8 +41,10 @@ const Image = styled.img`
 `
 
 const ContentWrapper = styled.div`
+  position: relative;
   padding-top: 10rem;
   padding-bottom: 6rem;
+  min-height: 100%;
 
   @media screen and (min-width: 600px) {
     width: 100%;
