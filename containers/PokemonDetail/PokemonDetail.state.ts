@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client'
 import { IPokemonArgs, IPokemonResult, POKEMON_GQL } from '../../graphql/pokemon.gql'
-import { usePalette } from '../../hooks/usePallete'
+import { usePalette } from '../../hooks'
 
 export const usePokemonDetail = (name: string) => {
   const { loading, error, data } = useQuery<IPokemonResult, IPokemonArgs>(
@@ -12,7 +12,7 @@ export const usePokemonDetail = (name: string) => {
     }
   )
 
-  const { colors } = usePalette(data ? data.pokemon.sprites.front_default : "")
+  const { colors } = usePalette(!!data && !!data.pokemon.sprites ? data.pokemon.sprites.front_default : "")
 
   return {
     data,

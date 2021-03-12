@@ -1,6 +1,6 @@
 import { IPokemonItem } from '../../graphql'
+import { usePalette } from '../../hooks'
 import { PokemonCardElement } from './PokemonCard.styled'
-import { usePalette } from '../../hooks/usePallete';
 
 type PokemonCardProps = {
   pokemon: IPokemonItem

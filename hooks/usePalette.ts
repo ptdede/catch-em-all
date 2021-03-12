@@ -32,7 +32,7 @@ export const usePalette = (imageUrl: string) => {
           palette: mapOfPalet
         })
     }
-  }, [])
+  }, [imageUrl])
 
   return { colors }
 }
