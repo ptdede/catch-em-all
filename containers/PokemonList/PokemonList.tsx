@@ -27,7 +27,7 @@ export const PokemonList = () => {
             pokemon => 
             <Link
               key={`pokemon-${pokemon.id}`}
-              href={`/pokemon/${pokemon.name}`}
+              href={`/pokemon?name=${pokemon.name}`}
             >
               <PokemonListElement.LinkWrapper>
                 <PokemonCard pokemon={pokemon} />

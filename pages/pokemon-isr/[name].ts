@@ -1,14 +1,17 @@
-import { PokemonDetail } from '../../containers';
 
 /**
  * NOTE:: 
- * To enable Incremental Static Regeneration, need to implement on custom server
+ * 
+ * Next has Incremental Static Regeneration (ISR) feature.
+ * Next can render static page on runtime by request.
+ * To enable ISR, need to implement on custom server
  * `next export` cannot build ISR page.
  * 
  * Because this project is deployed to vercel,
- * Will disable this temporarily.
- *
- 
+ * Will hide this route temporarily.
+ */
+
+import { PokemonDetail } from '../../containers';
 import { IPokemonList, pokemonsQueryVariables, POKEMONS_GQL } from '../../graphql';
 import { POKEMON_GQL } from '../../graphql/pokemon.gql';
 import { initializeApollo } from '../../libs/apolloClient';
@@ -52,6 +55,5 @@ export async function getStaticProps({ params }: { params: StaticPathParam }) {
     revalidate: 1,
   }
 }
-*/
 
 export default PokemonDetail
