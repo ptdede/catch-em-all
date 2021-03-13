@@ -4,12 +4,6 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 10rem;
-  padding-bottom: 6rem;
-
-  @media screen and (min-width: 600px) {
-    padding-top: 13rem;
-  }
 `
 
 const PokeWrapper = styled.div`
@@ -38,9 +32,14 @@ const LoadMoreWrapper = styled.div`
   margin-top: 2rem;
 `
 
+const LinkWrapper = styled.a`
+  display: contents;
+`
+
 export const PokemonListElement = {
   Wrapper,
   LoadMore,
   PokeWrapper,
+  LinkWrapper,
   LoadMoreWrapper
 }
