@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 
 const Wrapper = styled.div`
   position: relative;
+  z-index: 1;
 
   &:before {
     position: fixed;
@@ -11,7 +12,7 @@ const Wrapper = styled.div`
     height: 160px;
     background: rgb(255,255,255);
     background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 72%);
-    z-index: 99999;
+    z-index: 88;
   }
 `
 
@@ -23,7 +24,7 @@ const ImageWrapper = styled.div`
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 99999;
+  z-index: 88;
 
   @media screen and (min-width: 600px) {
     width: 240px;

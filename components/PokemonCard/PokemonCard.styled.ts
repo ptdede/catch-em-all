@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   }
 `
 
-const Inner = styled.div<{ color: string }>`
+const Inner = styled.div<{ color?: string }>`
   border-radius: 4px;
   margin: .2rem;
   padding: 1rem;
@@ -19,8 +19,8 @@ const Inner = styled.div<{ color: string }>`
   align-items: center;
   cursor: pointer;
   background-color: ${p => p.color ?? "#ffffff"};
-  transition: background-color 600ms, transform 200ms, opacity 200ms;
-  transition-timing-function: ease-in-out;
+  transition: background-color 400ms, transform 200ms, opacity 200ms;
+  transition-timing-function: ease;
 
   &:hover {
     transform: scale(.96);
