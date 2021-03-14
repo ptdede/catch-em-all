@@ -5,6 +5,7 @@ type BaseName = { name: string }
 export interface IPokemon {
   id: number
   name: string
+  ownedName?: string
   sprites: { front_default: string }
   moves: [{ move: BaseName }]
   types: [{ type: BaseName }]

@@ -15,27 +15,30 @@ export const useAddMyPokemon = () => {
     
     setLoading(true)
 
-    const similarName = await myPokemonDb
-      .where("name")
-      .equalsIgnoreCase(props.name)
-      .count()
-
-    if (similarName) {
-      tempNumber = new Date().getUTCMilliseconds();
-    }
-
-    const name = similarName > 0
-      ? `${props.name}-${tempNumber}`
-      : props.name
-
-    const postedData = {
-      ...props,
-      name
-    } as IPokemon
-
     try {
+      const similarName = await myPokemonDb
+        .where("ownedName")
+        .equalsIgnoreCase(props.ownedName ?? props.name)
+        .count()
+
+      if (similarName) {
+        tempNumber = new Date().getUTCMilliseconds();
+      }
+
+      const ownedName = similarName > 0
+        ? `${props.name}-${tempNumber}`
+        : props.name
+
+      const postedData = {
+        ...props,
+        ownedName
+      } as IPokemon
+    
       await myPokemonDb.add(postedData)
       setData(postedData)
+      setLoading(false)
+
+      return postedData
     } catch(err) {
       // eslint-disable-next-line no-console
       console.log(err)

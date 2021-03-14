@@ -6,7 +6,7 @@ const database = new Dexie(dbConfig.name)
 database
   .version(dbConfig.version)
   .stores({ 
-    [dbConfig.tables.myPokemons]: '++id, &name'
+    [dbConfig.tables.myPokemons]: '++id, name, &ownedName'
   });
 
 export default database
