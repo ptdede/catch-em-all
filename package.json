@@ -29,6 +29,7 @@
     "@apollo/client": "^3.3.11",
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.1.5",
+    "canvas-confetti": "^1.4.0",
     "colorthief": "^2.3.2",
     "deepmerge": "^4.2.2",
     "dexie": "^3.0.3",
