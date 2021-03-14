@@ -23,6 +23,7 @@
       "@hooks/*": ["hooks/*"],
       "@styles/*": ["styles/*"],
       "@graphql/*": ["graphql/*"],
+      "@helpers/*": ["helpers/*"],
       "@database/*": ["database/*"],
       "@constants/*": ["constants/*"],
       "@providers/*": ["providers/*"],
