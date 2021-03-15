@@ -1,13 +1,13 @@
-import { useEffect, useState } from 'react'
 import { Loading } from '@components'
+import { useEffect, useState } from 'react'
 import { useLockBodyScroll } from 'react-use'
 import { TCatchPokemonDialog } from './CatchPokemonDialog.styled'
-import { useCatchPokemon } from '@providers/CatchPokemon/CatchPokemon.provider'
 import { useCatchPokemonDialog } from './CatchPokemonDialog.state'
+import { useCatchPokemon } from '@providers/CatchPokemon/CatchPokemon.provider'
 
 export const CatchPokemonDialog = () => {
   const { pokemon, isCatching, isSuccess, loading } = useCatchPokemon()
-  const { updateError, updateLoading, updatePokemonName } = useCatchPokemonDialog()
+  const { updateError, updateLoading, closeCatchWindow, updatePokemonName } = useCatchPokemonDialog()
 
   const [ownedName, setOwnedName] = useState("")
 
@@ -41,7 +41,7 @@ export const CatchPokemonDialog = () => {
       </TCatchPokemonDialog.CatchTextStatus>
 
       {
-        isSuccess && (
+        isSuccess ? (
           <>
             <TCatchPokemonDialog.PokemonInputName
               onChange={(e) => setOwnedName(e.target.value)}
@@ -68,6 +68,12 @@ export const CatchPokemonDialog = () => {
               )
             }
           </>
+        ) : (
+          <TCatchPokemonDialog.ActionButton
+            onClick={closeCatchWindow}
+          >
+            OK
+          </TCatchPokemonDialog.ActionButton>
         )
       }
     </>

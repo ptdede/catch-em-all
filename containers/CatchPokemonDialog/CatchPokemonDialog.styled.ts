@@ -11,6 +11,7 @@ const Wrapper = styled.div<{ hide?: boolean }>`
   z-index: 88;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   transition: opacity 400ms ease;
   pointer-events: none;
   opacity: 0;
@@ -25,6 +26,7 @@ const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 500px;
   margin: 2rem;
   padding: 2rem;
   background-color: #ffffff;

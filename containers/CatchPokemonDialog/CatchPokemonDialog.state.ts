@@ -1,5 +1,5 @@
-import { useUpdateMyPokemon } from '@database/my-pokemon'
 import { IPokemon } from '@graphql/pokemon.gql'
+import { useUpdateMyPokemon } from '@database/my-pokemon'
 import { useCatchPokemon } from '@providers/CatchPokemon/CatchPokemon.provider'
 
 export const useCatchPokemonDialog = () => {
@@ -28,6 +28,7 @@ export const useCatchPokemonDialog = () => {
   return {
     updateError,
     updateLoading,
+    closeCatchWindow,
     updatePokemonName
   }
 }
