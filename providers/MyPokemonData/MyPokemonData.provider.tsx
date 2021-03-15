@@ -10,7 +10,8 @@ type IMyPokemonProviderProps = {
 const defaultContext = {
   pokemons: undefined as undefined | IPokemon[],
   loading: false,
-  error: undefined
+  error: undefined,
+  setPokemonData: (_pokemons: IPokemon[]) => {}
 }
 
 export const MyPokemonContext = createContext<typeof defaultContext>(defaultContext);
