@@ -9,6 +9,11 @@ export const usePokemonCard = () => {
   const [loadingDelete, setLoadingDelete] = useState(false)
 
   const releasePokemon = async (id: number) => {
+
+    const confirm = window.confirm('Are you sure you wish to release this pokemon?')
+
+    if (!confirm) return
+
     try {
       setLoadingDelete(true)
       
