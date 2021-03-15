@@ -25,7 +25,9 @@ export const PokemonCard = ({ id, href, name, image, owned, hideOwned, enableRel
         <TPokemonCard.Inner color={colors.dominant}>
           {
             !hideOwned && (
-              <TPokemonCard.Owned>
+              <TPokemonCard.Owned
+                bold={owned > 0}
+              >
                 owned: { owned ?? "0"}
               </TPokemonCard.Owned>
             )
