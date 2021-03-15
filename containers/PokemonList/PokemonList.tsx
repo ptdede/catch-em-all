@@ -1,4 +1,5 @@
 import { Loading, PokemonCard } from '@components';
+import { NoPokemon } from '@components/NoPokemon/NoPokemon';
 import { usePokemonList } from './PokemonList.state';
 import { PokemonListElement } from './PokemonList.styled';
 
@@ -11,7 +12,7 @@ export const PokemonList = () => {
     loadMorePokemon
   } = usePokemonList()
 
-  if (error) return <p>error</p>
+  if (error) return <NoPokemon title="Failed loading pokemon" />
 
   if (loading && !loadingMorePokemon) return <Loading />
 

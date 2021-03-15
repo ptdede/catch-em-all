@@ -18,7 +18,7 @@ export const MyPokemon = () => {
     )
   }
 
-  if (error) return <p>error</p>
+  if (error) return <NoPokemon title="Failed loading pokemon" />
 
   const { pokemons } = data
 
