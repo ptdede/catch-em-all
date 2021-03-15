@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import { POKEMONS_TYPES } from '@constants/pokemon-types'
 import { usePokemonDetail } from './PokemonDetail.state'
 import { TPokemonDetail } from './PokemonDetail.styled'
+import { useCatchPokemon } from '@providers/CatchPokemon/CatchPokemon.provider'
 
 export const PokemonDetail = () => {
   const { query, isReady } = useRouter()
@@ -11,10 +12,12 @@ export const PokemonDetail = () => {
 
   const { data, error, colors, loading } = usePokemonDetail(name as string)
 
+  const { isCatching, catchPokemon } = useCatchPokemon()
+
   if (loading || (!name && !isReady)) {
     return (
       <TPokemonDetail.LoadingWrapper>
-        <Loading />
+        <Loading size="m" />
       </TPokemonDetail.LoadingWrapper>
     )
   }
@@ -72,6 +75,16 @@ export const PokemonDetail = () => {
           }
         </TPokemonDetail.MoveWrapper>
       </TPokemonDetail.AttributesWrapper>
+
+      <TPokemonDetail.CatchWrapper
+        hide={isCatching}
+        onClick={() => catchPokemon(pokemon)}
+      >
+        <img
+          src={require("../../public/pokeball.png")}
+          alt="pokeball"
+        />
+      </TPokemonDetail.CatchWrapper>
     </TPokemonDetail.Wrapper>
   )
 }

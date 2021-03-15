@@ -1,7 +1,16 @@
+import { css, keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 
-const Wrapper = styled.div`
+const shakeKeyframe = keyframes`
+  0 { transform: translateX(-50%) rotate(0); }
+  20% { transform: translateX(-50%) rotate(-5deg); }
+  30% { transform: translateX(-50%) rotate(5deg); }
+  50% { transform: translateX(-50%) rotate(-2.5deg); }
+  60% { transform: translateX(-50%) rotate(2.5deg); }
+  100% { transform: translateX(-50%) rotate(0); }
+`
 
+const Wrapper = styled.div`
   @media screen and (min-width: 600px) {
     display: flex;
   }
@@ -49,12 +58,12 @@ const DetailContent = styled.div<{ color: string }>`
 const AttributesWrapper = styled.div`
   margin-top: 2rem;
   padding: 2rem;
-  margin-bottom: -6rem;
+  margin-bottom: 5rem;
   background-color: #ececec;
+  flex: 1;
 
   @media screen and (min-width: 600px) {
     margin-top: 0;
-    margin-bottom: 0;
     border-radius: 6px;
   }
 `
@@ -120,6 +129,50 @@ const LoadingWrapper = styled.div`
   align-items: center;
 `
 
+const CatchWrapper = styled.div<{ hide?: boolean }>`
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 88;
+  cursor: pointer;
+  transition: all 600ms ease;
+  animation: ${shakeKeyframe} 800ms cubic-bezier(.36,.07,.19,.97) infinite;
+
+  ${p => p.hide && css`
+    pointer-events: none;
+    opacity: 0;
+  `}
+  
+  &:hover {
+    transform: translateX(-50%) scale(.9);
+    animation: none;
+  }
+
+  &:after {
+    position: absolute;
+    bottom: -.2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    content: "catch pokemon";
+    background-color: #ffffff;
+    padding: .2rem 1rem;
+    border-radius: 1000px;
+    font-size: 1.2em;
+    line-height: .9;
+    text-align: center;
+  }
+
+  img {
+    width: 100px;
+    height: 100px;
+    padding: .5rem;
+    background-color: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0px 0px 50px 3px rgba(0,0,0,0.6);
+  }
+`
+
 export const TPokemonDetail = {
   Name,
   Type,
@@ -128,6 +181,7 @@ export const TPokemonDetail = {
   Wrapper,
   TypeWrapper,
   MoveWrapper,
+  CatchWrapper,
   DetailWrapper,
   DetailContent,
   LoadingWrapper,
