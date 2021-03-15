@@ -60,10 +60,20 @@ const Owned = styled.p`
   opacity: .7;
 `
 
+const ActionWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .5rem .5rem;
+  margin-bottom: .5rem;
+  cursor: pointer;
+`
+
 export const TPokemonCard = {
   Name,
   Owned,
   Image,
   Inner,
   Wrapper,
+  ActionWrapper,
 }

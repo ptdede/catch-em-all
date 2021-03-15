@@ -1,35 +1,53 @@
+import Link from 'next/link'
 import { usePalette } from '@hooks/usePalette'
 import { TPokemonCard } from './PokemonCard.styled'
+import { usePokemonCard } from './PokemonCard.state'
 
 type PokemonCardProps = {
-  id: number,
-  name: string,
-  image: string,
-  owned?: number,
+  id: number
+  href: string
+  name: string
+  image: string
+  owned?: number
   hideOwned?: boolean
+  enableRelease?: boolean
 }
 
-export const PokemonCard = ({ name, image, owned, hideOwned }: PokemonCardProps) => {
+export const PokemonCard = ({ id, href, name, image, owned, hideOwned, enableRelease }: PokemonCardProps) => {
   const { colors } = usePalette(image)
+  const { releasePokemon } = usePokemonCard()
 
   return (
     <TPokemonCard.Wrapper>
-      <TPokemonCard.Inner color={colors.dominant}>
-        {
-          !hideOwned && (
-            <TPokemonCard.Owned>
-              owned: { owned ?? "0"}
-            </TPokemonCard.Owned>
-          )
-        }
-        <TPokemonCard.Image
-          src={image}
-          alt={name}
-        />
-        <TPokemonCard.Name>
-          {name}
-        </TPokemonCard.Name>
-      </TPokemonCard.Inner>
+      <Link
+        href={href}
+      >
+        <TPokemonCard.Inner color={colors.dominant}>
+          {
+            !hideOwned && (
+              <TPokemonCard.Owned>
+                owned: { owned ?? "0"}
+              </TPokemonCard.Owned>
+            )
+          }
+          <TPokemonCard.Image
+            src={image}
+            alt={name}
+          />
+          <TPokemonCard.Name>
+            {name}
+          </TPokemonCard.Name>
+        </TPokemonCard.Inner>
+      </Link>
+      {
+        enableRelease && (
+          <TPokemonCard.ActionWrapper
+            onClick={() => releasePokemon(id)}
+          >
+            <p>Release!</p>
+          </TPokemonCard.ActionWrapper>
+        )
+      }
     </TPokemonCard.Wrapper>
   )
 }

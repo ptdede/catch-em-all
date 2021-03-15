@@ -13,10 +13,6 @@ const PokeWrapper = styled.div`
   padding: 0 .2rem;
 `
 
-const LinkWrapper = styled.a`
-  display: contents;
-`
-
 const LoadingWrapper = styled.div`
   position: absolute;
   top: 0;
@@ -31,6 +27,5 @@ const LoadingWrapper = styled.div`
 export const TMyPokemon = {
   Wrapper,
   PokeWrapper,
-  LinkWrapper,
   LoadingWrapper,
 }
