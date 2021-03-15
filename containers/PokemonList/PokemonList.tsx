@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import { Loading, PokemonCard } from '@components';
+import { NoPokemon } from '@components/NoPokemon/NoPokemon';
 import { usePokemonList } from './PokemonList.state';
 import { PokemonListElement } from './PokemonList.styled';
 
@@ -12,7 +12,7 @@ export const PokemonList = () => {
     loadMorePokemon
   } = usePokemonList()
 
-  if (error) return <p>error</p>
+  if (error) return <NoPokemon title="Failed loading pokemon" />
 
   if (loading && !loadingMorePokemon) return <Loading />
 
@@ -24,14 +24,14 @@ export const PokemonList = () => {
         {
           pokemons.results.map(
             pokemon => 
-            <Link
-              key={`pokemon-${pokemon.id}`}
-              href={`/pokemon?name=${pokemon.name}`}
-            >
-              <PokemonListElement.LinkWrapper>
-                <PokemonCard pokemon={pokemon} />
-              </PokemonListElement.LinkWrapper>
-            </Link>
+              <PokemonCard
+                key={`pokemon-list-${pokemon.id}`}
+                href={`/pokemon?name=${pokemon.name}`}
+                id={pokemon.id}
+                name={pokemon.name}
+                image={pokemon.image}
+                owned={pokemon.owned}
+              />
           )
         }
       </PokemonListElement.PokeWrapper>

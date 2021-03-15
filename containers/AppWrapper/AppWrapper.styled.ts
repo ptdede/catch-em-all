@@ -55,7 +55,7 @@ const ContentWrapper = styled.div`
   }
 `
 
-export const AppWrapperElement = {
+export const TAppWrapper = {
   Image,
   Wrapper,
   ImageWrapper,

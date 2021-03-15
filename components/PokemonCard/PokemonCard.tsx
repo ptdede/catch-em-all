@@ -1,29 +1,55 @@
-import { IPokemonItem } from '@graphql/pokemons.gql'
+import Link from 'next/link'
 import { usePalette } from '@hooks/usePalette'
-import { PokemonCardElement } from './PokemonCard.styled'
+import { TPokemonCard } from './PokemonCard.styled'
+import { usePokemonCard } from './PokemonCard.state'
 
 type PokemonCardProps = {
-  pokemon: IPokemonItem
+  id: number
+  href: string
+  name: string
+  image: string
+  owned?: number
+  hideOwned?: boolean
+  enableRelease?: boolean
 }
 
-export const PokemonCard = ({ pokemon }: PokemonCardProps) => {
-
-  const { colors } = usePalette(pokemon.image)
+export const PokemonCard = ({ id, href, name, image, owned, hideOwned, enableRelease }: PokemonCardProps) => {
+  const { colors } = usePalette(image)
+  const { releasePokemon } = usePokemonCard()
 
   return (
-    <PokemonCardElement.Wrapper>
-      <PokemonCardElement.Inner color={colors.dominant}>
-        <PokemonCardElement.Owned>
-          owned: { pokemon.owned ?? "0"}
-        </PokemonCardElement.Owned>
-        <PokemonCardElement.Image
-          src={pokemon.image}
-          alt={pokemon.name}
-        />
-        <PokemonCardElement.Name>
-          {pokemon.name}
-        </PokemonCardElement.Name>
-      </PokemonCardElement.Inner>
-    </PokemonCardElement.Wrapper>
+    <TPokemonCard.Wrapper>
+      <Link
+        href={href}
+      >
+        <TPokemonCard.Inner color={colors.dominant}>
+          {
+            !hideOwned && (
+              <TPokemonCard.Owned
+                bold={owned > 0}
+              >
+                owned: { owned ?? "0"}
+              </TPokemonCard.Owned>
+            )
+          }
+          <TPokemonCard.Image
+            src={image}
+            alt={name}
+          />
+          <TPokemonCard.Name>
+            {name}
+          </TPokemonCard.Name>
+        </TPokemonCard.Inner>
+      </Link>
+      {
+        enableRelease && (
+          <TPokemonCard.ActionWrapper
+            onClick={() => releasePokemon(id)}
+          >
+            <p>Release!</p>
+          </TPokemonCard.ActionWrapper>
+        )
+      }
+    </TPokemonCard.Wrapper>
   )
 }

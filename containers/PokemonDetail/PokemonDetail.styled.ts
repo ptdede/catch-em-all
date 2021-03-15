@@ -131,7 +131,7 @@ const LoadingWrapper = styled.div`
 
 const CatchWrapper = styled.div<{ hide?: boolean }>`
   position: fixed;
-  bottom: 2rem;
+  bottom: 6rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 88;

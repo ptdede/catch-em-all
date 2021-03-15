@@ -4,6 +4,7 @@ import { POKEMONS_TYPES } from '@constants/pokemon-types'
 import { usePokemonDetail } from './PokemonDetail.state'
 import { TPokemonDetail } from './PokemonDetail.styled'
 import { useCatchPokemon } from '@providers/CatchPokemon/CatchPokemon.provider'
+import { NoPokemon } from '@components/NoPokemon/NoPokemon'
 
 export const PokemonDetail = () => {
   const { query } = useRouter()
@@ -23,7 +24,7 @@ export const PokemonDetail = () => {
     )
   }
 
-  if (error) return <p>error</p>
+  if (error) return <NoPokemon title="Failed loading pokemon" />
 
   const { pokemon } = data
 

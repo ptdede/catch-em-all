@@ -1,8 +1,9 @@
 import { NetworkStatus, useQuery } from '@apollo/client'
 import { IPokemonsArgs, IPokemonsResult, pokemonsQueryVariables, POKEMONS_GQL } from '@graphql/pokemons.gql'
+import { useMyPokemonData } from '@providers/MyPokemonData/MyPokemonData.provider'
 
 export const usePokemonList = () => {
-  const { loading, error, data, fetchMore, networkStatus } = useQuery<IPokemonsResult, IPokemonsArgs>(
+  const { loading, error, data: gqlData, fetchMore, networkStatus } = useQuery<IPokemonsResult, IPokemonsArgs>(
     POKEMONS_GQL,
     {
       variables: pokemonsQueryVariables,
@@ -10,7 +11,23 @@ export const usePokemonList = () => {
     }
   )
 
+  const { pokemons: myPokemonData } = useMyPokemonData()
+
   const loadingMorePokemon = networkStatus === NetworkStatus.fetchMore
+
+  const data = {
+    pokemons: {
+      ...gqlData.pokemons,
+      results: gqlData.pokemons.results.map(res => {
+        const owned = myPokemonData?.filter(pokemon => pokemon.name === res.name).length ?? 0
+        
+        return {
+          ...res,
+          owned
+        }
+      })
+    }
+  } as IPokemonsResult
 
   const loadMorePokemon = () => {
     fetchMore({

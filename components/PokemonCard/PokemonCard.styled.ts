@@ -1,3 +1,4 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
 const Wrapper = styled.div`
@@ -51,19 +52,34 @@ const Name = styled.p`
   margin-top: .5rem;
 `
 
-const Owned = styled.p`
+const Owned = styled.p<{ bold?: boolean }>`
   color: #ffffff;
   padding: .2rem .4rem;
   border-radius: 1000px;
   font-size: .6em;
   background-color: rgba(0,58,112, .6);
-  opacity: .7;
+  opacity: .5;
+
+  ${p => p.bold && css`
+    opacity: 1;
+  `}
 `
 
-export const PokemonCardElement = {
+const ActionWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .5rem .5rem;
+  margin-bottom: .5rem;
+  cursor: pointer;
+  color: #ff3333;
+`
+
+export const TPokemonCard = {
   Name,
   Owned,
   Image,
   Inner,
   Wrapper,
+  ActionWrapper,
 }

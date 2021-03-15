@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useLazyQuery } from '@apollo/client'
 import { usePalette } from '@hooks/usePalette'
-import { useGetMyPokemon } from '@database/my-pokemon/hooks/useGetMyPokemond'
+import { useGetMyPokemon } from '@database/my-pokemon/hooks/useGetMyPokemon'
 import { IPokemonArgs, IPokemonResult, POKEMON_GQL } from '@graphql/pokemon.gql'
 
 export const usePokemonDetail = (name: string, ownedName: string) => {

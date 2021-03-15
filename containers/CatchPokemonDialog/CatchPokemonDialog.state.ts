@@ -10,7 +10,7 @@ export const useCatchPokemonDialog = () => {
 
   const updatePokemonName = async (name: string, pokemon: IPokemon) => {
     try {
-      const redirect = `/pokemon?name=${pokemon.name}&owned=${name}`
+      const redirect = `/my-pokemon`
 
       if (name === pokemon.ownedName) {
         push(redirect)

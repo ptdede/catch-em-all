@@ -32,14 +32,9 @@ const LoadMoreWrapper = styled.div`
   margin-top: 2rem;
 `
 
-const LinkWrapper = styled.a`
-  display: contents;
-`
-
 export const PokemonListElement = {
   Wrapper,
   LoadMore,
   PokeWrapper,
-  LinkWrapper,
   LoadMoreWrapper
 }

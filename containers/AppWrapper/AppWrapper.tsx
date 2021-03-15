@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { HTMLAttributes, useEffect, useRef } from 'react'
 import { useWindowSize } from 'react-use';
-import { AppWrapperElement } from './AppWrapper.styled'
+import { TAppWrapper } from './AppWrapper.styled'
 
 type AppWrapperProps = {
 } & HTMLAttributes<HTMLDivElement>
@@ -17,22 +17,22 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
   }, [height]);
 
   return(
-    <AppWrapperElement.Wrapper
+    <TAppWrapper.Wrapper
       ref={wrapperRef}
     >
-      <AppWrapperElement.ImageWrapper>
+      <TAppWrapper.ImageWrapper>
         <Link href="/">
           <a>
-            <AppWrapperElement.Image
+            <TAppWrapper.Image
               src={require('../../public/logo.png')}
               alt="Pokemon Logo"
             />
           </a>
         </Link>
-      </AppWrapperElement.ImageWrapper>
-      <AppWrapperElement.ContentWrapper>
+      </TAppWrapper.ImageWrapper>
+      <TAppWrapper.ContentWrapper>
         {children}
-      </AppWrapperElement.ContentWrapper>
-    </AppWrapperElement.Wrapper>
+      </TAppWrapper.ContentWrapper>
+    </TAppWrapper.Wrapper>
   )
 }
