@@ -3,13 +3,10 @@ import { useState } from 'react'
 export const useNavigationBarProvider = () => {
   const [hidden, setHidden] = useState(false)
   
-  const hideNavigation = () => setHidden(true)
-
-  const unhideNavigation = () => setHidden(false)
+  const hideNavigation = (isHide: boolean) => setHidden(isHide)
 
   return {
     hidden,
-    hideNavigation,
-    unhideNavigation
+    hideNavigation
   }
 }

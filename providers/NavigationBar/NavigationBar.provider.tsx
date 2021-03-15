@@ -10,8 +10,7 @@ type INavigationBarProviderProps = {
 }
 
 const defaultContext = {
-  hideNavigation: () => {},
-  unhideNavigation: () => {}
+  hideNavigation: (_isHide: boolean) => {}
 }
 
 export const NavigationBarContext = createContext<typeof defaultContext>(defaultContext);
@@ -20,10 +19,10 @@ export const useNavigationBar = () => useContext(NavigationBarContext);
 
 export const NavigationBarProvider = ({ children }: INavigationBarProviderProps) => {
   const { pathname } = useRouter()
-  const { hidden, ...context } = useNavigationBarProvider()
+  const { hidden, hideNavigation } = useNavigationBarProvider()
 
   return (
-    <NavigationBarContext.Provider value={context}>
+    <NavigationBarContext.Provider value={{ hideNavigation }}>
       {children}
       <TNavigationBar.Wrapper
         hidden={hidden}

@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { IPokemon } from '@graphql/pokemon.gql'
 import { useAddMyPokemon } from '@database/my-pokemon'
 import { delay } from '@helpers/delay'
 import confetti from "canvas-confetti";
+import { useNavigationBar } from '@providers/NavigationBar/NavigationBar.provider';
 
 export const useCatchPokemonProvider = () => {
   const { addMyPokemon } = useAddMyPokemon()
@@ -11,6 +12,11 @@ export const useCatchPokemonProvider = () => {
   const [loading, setLoading] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
   const [isCatching, setIsCatching] = useState(false)
+  const { hideNavigation } = useNavigationBar()
+
+  useEffect(() => {
+    hideNavigation(isCatching)
+  }, [isCatching])
 
   const catchPokemon = async (pokemon: IPokemon) => {
     setPokemon(pokemon)
