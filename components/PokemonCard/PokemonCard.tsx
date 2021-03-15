@@ -1,29 +1,35 @@
-import { IPokemonItem } from '@graphql/pokemons.gql'
 import { usePalette } from '@hooks/usePalette'
-import { PokemonCardElement } from './PokemonCard.styled'
+import { TPokemonCard } from './PokemonCard.styled'
 
 type PokemonCardProps = {
-  pokemon: IPokemonItem
+  id: number,
+  name: string,
+  image: string,
+  owned?: number,
+  hideOwned?: boolean
 }
 
-export const PokemonCard = ({ pokemon }: PokemonCardProps) => {
-
-  const { colors } = usePalette(pokemon.image)
+export const PokemonCard = ({ name, image, owned, hideOwned }: PokemonCardProps) => {
+  const { colors } = usePalette(image)
 
   return (
-    <PokemonCardElement.Wrapper>
-      <PokemonCardElement.Inner color={colors.dominant}>
-        <PokemonCardElement.Owned>
-          owned: { pokemon.owned ?? "0"}
-        </PokemonCardElement.Owned>
-        <PokemonCardElement.Image
-          src={pokemon.image}
-          alt={pokemon.name}
+    <TPokemonCard.Wrapper>
+      <TPokemonCard.Inner color={colors.dominant}>
+        {
+          !hideOwned && (
+            <TPokemonCard.Owned>
+              owned: { owned ?? "0"}
+            </TPokemonCard.Owned>
+          )
+        }
+        <TPokemonCard.Image
+          src={image}
+          alt={name}
         />
-        <PokemonCardElement.Name>
-          {pokemon.name}
-        </PokemonCardElement.Name>
-      </PokemonCardElement.Inner>
-    </PokemonCardElement.Wrapper>
+        <TPokemonCard.Name>
+          {name}
+        </TPokemonCard.Name>
+      </TPokemonCard.Inner>
+    </TPokemonCard.Wrapper>
   )
 }

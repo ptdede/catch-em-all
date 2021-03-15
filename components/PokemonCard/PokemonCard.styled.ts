@@ -60,7 +60,7 @@ const Owned = styled.p`
   opacity: .7;
 `
 
-export const PokemonCardElement = {
+export const TPokemonCard = {
   Name,
   Owned,
   Image,

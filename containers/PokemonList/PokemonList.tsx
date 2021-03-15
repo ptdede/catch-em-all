@@ -29,7 +29,12 @@ export const PokemonList = () => {
               href={`/pokemon?name=${pokemon.name}`}
             >
               <PokemonListElement.LinkWrapper>
-                <PokemonCard pokemon={pokemon} />
+                <PokemonCard
+                  id={pokemon.id}
+                  name={pokemon.name}
+                  image={pokemon.image}
+                  owned={pokemon.owned}
+                />
               </PokemonListElement.LinkWrapper>
             </Link>
           )
