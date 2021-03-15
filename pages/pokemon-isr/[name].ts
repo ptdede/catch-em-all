@@ -12,50 +12,51 @@
  */
 
 import { PokemonDetail } from '@containers';
-import { POKEMON_GQL } from '@graphql/pokemon.gql';
-import { initializeApollo } from '@libs/apolloClient';
-import { IPokemonList, pokemonsQueryVariables, POKEMONS_GQL } from '@graphql/pokemons.gql';
 
-type StaticPathParam = {
-  name: string
-}
+// import { POKEMON_GQL } from '@graphql/pokemon.gql';
+// import { initializeApollo } from '@libs/apolloClient';
+// import { IPokemonList, pokemonsQueryVariables, POKEMONS_GQL } from '@graphql/pokemons.gql';
 
-export async function getStaticPaths() {
-  const apolloClient = initializeApollo()
+// type StaticPathParam = {
+//   name: string
+// }
 
-  const { data } = await apolloClient.query({
-    query: POKEMONS_GQL,
-    variables: pokemonsQueryVariables,
-  })
+// export async function getStaticPaths() {
+//   const apolloClient = initializeApollo()
 
-  const pokemons = data.pokemons as IPokemonList
+//   const { data } = await apolloClient.query({
+//     query: POKEMONS_GQL,
+//     variables: pokemonsQueryVariables,
+//   })
 
-  const paths = pokemons.results.map(pokemon => ({
-    params: { name: pokemon.name }
-  }))
+//   const pokemons = data.pokemons as IPokemonList
 
-  // TODO: To enable ISR, don't forget to change this to true
-  // to make static generation work, leave this value false.
-  return { paths, fallback: false }
-}
+//   const paths = pokemons.results.map(pokemon => ({
+//     params: { name: pokemon.name }
+//   }))
 
-export async function getStaticProps({ params }: { params: StaticPathParam }) {
-  const apolloClient = initializeApollo()
+//   // TODO: To enable ISR, don't forget to change this to true
+//   // to make static generation work, leave this value false.
+//   return { paths, fallback: false }
+// }
 
-  const name = params.name
+// export async function getStaticProps({ params }: { params: StaticPathParam }) {
+//   const apolloClient = initializeApollo()
 
-  await apolloClient.query({
-    query: POKEMON_GQL,
-    variables: { name },
-  })
+//   const name = params.name
 
-  return {
-    props: {
-      name,
-      initialApolloState: apolloClient.cache.extract(),
-    },
-    revalidate: 1,
-  }
-}
+//   await apolloClient.query({
+//     query: POKEMON_GQL,
+//     variables: { name },
+//   })
+
+//   return {
+//     props: {
+//       name,
+//       initialApolloState: apolloClient.cache.extract(),
+//     },
+//     revalidate: 1,
+//   }
+// }
 
 export default PokemonDetail

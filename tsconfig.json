@@ -20,18 +20,17 @@
     "baseUrl": ".",
     "paths": {
       "@libs/*": ["libs/*"],
-      "@libs": ["libs"],
       "@hooks/*": ["hooks/*"],
-      "@hooks": ["hooks"],
       "@styles/*": ["styles/*"],
       "@graphql/*": ["graphql/*"],
-      "@graphql": ["graphql"],
+      "@helpers/*": ["helpers/*"],
+      "@database/*": ["database/*"],
       "@constants/*": ["constants/*"],
-      "@constants": ["constants"],
-      "@containers/*": ["containers/*"],
+      "@providers/*": ["providers/*"],
       "@containers": ["containers"],
-      "@components/*": ["components/*"],
-      "@components": ["components"]
+      "@components": ["components"],
+      "@containers/*": ["containers/*"],
+      "@components/*": ["components/*"]
     }
   },
   "include": [

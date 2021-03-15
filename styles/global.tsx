@@ -7,7 +7,12 @@ export const globalStyles = (
       ${normalize}
 
       h1, h2, h3, h4, h5, h6, p, a, ul, ol, li, button, div {
-        font-family: 'Hind', sans-serif;
+        font-family: 'Londrina Solid', cursive;
+      }
+      
+      * {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
       }
     `}
   />

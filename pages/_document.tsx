@@ -1,5 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 
+const fontLink = "https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@300;400&display=swap"
 class MyDocument extends Document {
   render() {
     return (
@@ -12,20 +13,24 @@ class MyDocument extends Document {
           <link
             rel="preload"
             as="style"
-            href="https://fonts.googleapis.com/css2?family=Hind:wght@300;600&display=swap"
+            href={fontLink}
           />
           <link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Hind:wght@300;600&display=swap"
+            href={fontLink}
             media="print"
             onLoad={function () {
               this.media='all'
             }}
           />
+          <link
+            href={fontLink}
+            rel="stylesheet"
+          />
           <noscript>
             <link
               rel="stylesheet"
-              href="https://fonts.googleapis.com/css2?family=Hind:wght@300;600&display=swap"
+              href={fontLink}
             />
           </noscript>
         </Head>

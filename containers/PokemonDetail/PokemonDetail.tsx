@@ -3,23 +3,27 @@ import { useRouter } from 'next/router'
 import { POKEMONS_TYPES } from '@constants/pokemon-types'
 import { usePokemonDetail } from './PokemonDetail.state'
 import { TPokemonDetail } from './PokemonDetail.styled'
+import { useCatchPokemon } from '@providers/CatchPokemon/CatchPokemon.provider'
 
 export const PokemonDetail = () => {
-  const { query, isReady } = useRouter()
+  const { query } = useRouter()
 
-  const name = query.name
+  const name = query.name as string
+  const ownedName = query.owned as string
 
-  const { data, error, colors, loading } = usePokemonDetail(name as string)
+  const { data, error, colors, loading } = usePokemonDetail(name, ownedName)
 
-  if (loading || (!name && !isReady)) {
+  const { isCatching, catchPokemon } = useCatchPokemon()
+
+  if (loading) {
     return (
       <TPokemonDetail.LoadingWrapper>
-        <Loading />
+        <Loading size="m" />
       </TPokemonDetail.LoadingWrapper>
     )
   }
 
-  if (error || (isReady && !name)) return <p>error</p>
+  if (error) return <p>error</p>
 
   const { pokemon } = data
 
@@ -34,7 +38,7 @@ export const PokemonDetail = () => {
             alt={pokemon.name}
           />
           <TPokemonDetail.Name>
-            {pokemon.name}
+            {pokemon.ownedName ?? pokemon.name}
           </TPokemonDetail.Name>
           <TPokemonDetail.TypeWrapper>
             {
@@ -72,6 +76,20 @@ export const PokemonDetail = () => {
           }
         </TPokemonDetail.MoveWrapper>
       </TPokemonDetail.AttributesWrapper>
+
+      {
+        !ownedName && (
+          <TPokemonDetail.CatchWrapper
+            hide={isCatching}
+            onClick={() => catchPokemon(pokemon)}
+          >
+            <img
+              src={require("../../public/pokeball.png")}
+              alt="pokeball"
+            />
+          </TPokemonDetail.CatchWrapper>
+        )
+      }
     </TPokemonDetail.Wrapper>
   )
 }
