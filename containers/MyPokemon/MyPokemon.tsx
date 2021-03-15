@@ -1,6 +1,7 @@
 import { TMyPokemon } from './MyPokemon.styled';
 import { useMyPokemon } from './MyPokemon.state';
 import { Loading, PokemonCard } from '@components';
+import { NoPokemon } from '@components/NoPokemon/NoPokemon';
 
 export const MyPokemon = () => {
   const {
@@ -20,6 +21,12 @@ export const MyPokemon = () => {
   if (error) return <p>error</p>
 
   const { pokemons } = data
+
+  if (!pokemons.results.length) {
+    return (
+      <NoPokemon title="You don't have any pokemons" />
+    )
+  }
 
   return (
     <TMyPokemon.Wrapper>
