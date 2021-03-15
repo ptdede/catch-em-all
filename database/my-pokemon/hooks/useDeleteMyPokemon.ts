@@ -22,7 +22,7 @@ export const useDeleteMyPokemon = () => {
   return {
     error,
     loading,
-    success: !error && !error,
+    success: !error && !loading,
     deleteMyPokemon
   }
 }
