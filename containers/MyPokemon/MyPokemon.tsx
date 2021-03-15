@@ -10,7 +10,13 @@ export const MyPokemon = () => {
     loading
   } = useMyPokemon()
 
-  if (loading) return <Loading />
+  if (loading) {
+    return (
+      <TMyPokemon.LoadingWrapper>
+        <Loading size="m" />
+      </TMyPokemon.LoadingWrapper>
+    )
+  }
 
   if (error) return <p>error</p>
 
