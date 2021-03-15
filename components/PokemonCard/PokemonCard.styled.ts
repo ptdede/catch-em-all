@@ -72,6 +72,7 @@ const ActionWrapper = styled.div`
   padding: .5rem .5rem;
   margin-bottom: .5rem;
   cursor: pointer;
+  color: #ff3333;
 `
 
 export const TPokemonCard = {
