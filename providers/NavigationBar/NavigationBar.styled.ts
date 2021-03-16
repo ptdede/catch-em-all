@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
-const Wrapper = styled.div<{ hidden: boolean }>`
+const Wrapper = styled.nav<{ hidden: boolean }>`
   position: fixed;
   display: flex;
   justify-content: center;

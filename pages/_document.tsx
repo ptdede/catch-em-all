@@ -4,7 +4,9 @@ const fontLink = "https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@3
 class MyDocument extends Document {
   render() {
     return (
-      <Html>
+      <Html
+        lang="en"
+      >
         <Head>
           <link
             rel="preconnect" 

@@ -18,6 +18,7 @@ const Wrapper = styled.div`
 
 const DetailWrapper = styled.div`
   @media screen and (min-width: 600px) {
+    max-width: 400px;
     margin-right: 2rem;
   }
 `
@@ -68,7 +69,7 @@ const AttributesWrapper = styled.div`
   }
 `
 
-const AttributesTitle = styled.h4`
+const AttributesTitle = styled.p`
   font-weight: 700;
   font-size: 1.2em;
   border-bottom: solid 1px rgba(111, 111, 111, .3);
@@ -88,6 +89,7 @@ const Name = styled.h1`
   font-weight: 700;
   color: rgba(0,58,112, 1);
   margin-top: 2rem;
+  text-align: center;
 `
 
 const Type = styled.p<{ color: string }>`

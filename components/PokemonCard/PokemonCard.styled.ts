@@ -11,6 +11,7 @@ const Wrapper = styled.div`
 `
 
 const Inner = styled.div<{ color?: string }>`
+  position: relative;
   border-radius: 4px;
   margin: .2rem;
   padding: 1rem;
@@ -41,8 +42,9 @@ const Image = styled.img`
 `
 
 const Name = styled.p`
+  max-width: 100%;
   text-transform: uppercase;
-  font-size: .7em;
+  font-size: .8em;
   font-weight: 700;
   letter-spacing: 0.1em;
   color: #ffffff;
@@ -50,18 +52,27 @@ const Name = styled.p`
   padding: .3rem .6rem;
   border-radius: 1000px;
   margin-top: .5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `
 
 const Owned = styled.p<{ bold?: boolean }>`
+  position: absolute;
+  top: 1rem;
+  left: 0;
   color: #ffffff;
   padding: .2rem .4rem;
-  border-radius: 1000px;
-  font-size: .6em;
+  border-top-right-radius: 1000px;
+  border-bottom-right-radius: 1000px;
+  font-size: .75em;
   background-color: rgba(0,58,112, .6);
-  opacity: .5;
+  opacity: 1;
 
   ${p => p.bold && css`
+    color: #111111;
     opacity: 1;
+    background-color: #ffcb05;
   `}
 `
 
@@ -72,7 +83,7 @@ const ActionWrapper = styled.div`
   padding: .5rem .5rem;
   margin-bottom: .5rem;
   cursor: pointer;
-  color: #ff3333;
+  color: #CA0B00;
 `
 
 export const TPokemonCard = {
