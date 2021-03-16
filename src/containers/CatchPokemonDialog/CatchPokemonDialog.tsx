@@ -25,7 +25,7 @@ export const CatchPokemonDialog = () => {
         src={
           isSuccess 
             ? pokemon.sprites.front_default
-            : require('../../public/poke-sad.png')
+            : require('public/poke-sad.png')
         }
         alt={
           isSuccess 
@@ -45,7 +45,7 @@ export const CatchPokemonDialog = () => {
           <>
             <TCatchPokemonDialog.PokemonInputName
               onChange={(e) => setOwnedName(e.target.value)}
-              defaultValue={pokemon.ownedName}
+              defaultValue={pokemon.ownedName ?? pokemon.name}
             />
 
             {

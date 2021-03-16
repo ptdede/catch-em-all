@@ -26,12 +26,20 @@ export const useUpdateMyPokemon = () => {
         throw new Error("Name not unique, Please select another name");
       }
 
-      await myPokemonDb.put(pokemon)
+      const id = await myPokemonDb.put({
+        ...pokemon,
+        id: undefined
+      })
+
+      const updatedPokemon = {
+        ...pokemon,
+        id
+      }
       
-      setData(pokemon)
+      setData(updatedPokemon)
       setLoading(false)
 
-      return pokemon
+      return updatedPokemon
     } catch(err) {
       // eslint-disable-next-line no-console
       console.log(err)

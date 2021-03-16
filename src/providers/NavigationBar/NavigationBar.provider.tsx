@@ -32,7 +32,7 @@ export const NavigationBarProvider = ({ children }: INavigationBarProviderProps)
             active={pathname === "/"}
           >
             <TNavigationBar.Image
-              src={require("../../public/nav-discover.png")}
+              src={require("public/nav-discover.png")}
               alt="Discover Pokemons"
             />
             <p>Discover</p>
@@ -42,7 +42,7 @@ export const NavigationBarProvider = ({ children }: INavigationBarProviderProps)
         <Link href="/my-pokemon">
           <TNavigationBar.Item active={pathname === "/my-pokemon"}>
             <TNavigationBar.Image
-              src={require("../../public/nav-mypokemon.png")}
+              src={require("public/nav-mypokemon.png")}
               alt="Discover Pokemons"
             />
             <p>My Pokemon</p>

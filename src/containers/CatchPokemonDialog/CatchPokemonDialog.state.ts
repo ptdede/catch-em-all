@@ -15,27 +15,17 @@ export const useCatchPokemonDialog = () => {
     try {
       const redirect = `/my-pokemon`
 
-      if (name === pokemon.ownedName) {
-        push(redirect)
-        closeCatchWindow()
-        return
-      }
-
-      const updatePokemon = {
+      const willUpdate = {
         ...pokemon,
         ownedName: name
       }
 
-      await updateMyPokemon(updatePokemon)
+      const updatePokemon = await updateMyPokemon(willUpdate)
 
-      const filtered = myPokemon.map(poke => {
-        if (poke.ownedName === pokemon.ownedName) {
-          return updatePokemon
-        }
-        return  poke
-      })
-
-      setMyPokemonData(filtered)
+      setMyPokemonData([
+        updatePokemon,
+        ...myPokemon
+      ])
       
       push(redirect)
       closeCatchWindow()
