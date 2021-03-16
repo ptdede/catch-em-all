@@ -2,15 +2,16 @@
 
 # Catch 'em all! | Pokemon Web App
 
+<p>
 <img width="32%" src="./github-assets/mobile-1.png" />
 <img width="32%" src="./github-assets/mobile-2-1.png" />
 <img width="32%" src="./github-assets/mobile-2-2.png" />
 <img width="32%" src="./github-assets/mobile-3.png" />
 <img width="32%" src="./github-assets/mobile-4.png" />
 <img width="32%" src="./github-assets/mobile-5.png" />
-
 <img width="49%" src="./github-assets/desktop-1.png" />
 <img width="49%" src="./github-assets/desktop-2.png" />
+</p>
 
 ## How to run this project
 
