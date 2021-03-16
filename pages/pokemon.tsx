@@ -1,22 +1,20 @@
-import { Loading } from '@components';
-import { useRouter } from 'next/router';
-import { PokemonDetail } from '@containers';
-import { TPokemonDetail } from '@containers/PokemonDetail/PokemonDetail.styled';
+import { Loading } from "@components";
+import { useRouter } from "next/router";
+import { PokemonDetail } from "@containers";
+import { TPokemonDetail } from "@containers/PokemonDetail/PokemonDetail.styled";
 
 const Pokemon = () => {
-  const { isReady } = useRouter()
+  const { isReady } = useRouter();
 
   if (!isReady) {
     return (
       <TPokemonDetail.LoadingWrapper>
         <Loading size="m" />
       </TPokemonDetail.LoadingWrapper>
-    )
+    );
   }
 
-  return (
-    <PokemonDetail />
-  )
-}
+  return <PokemonDetail />;
+};
 
-export default Pokemon
+export default Pokemon;

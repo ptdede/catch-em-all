@@ -1,8 +1,8 @@
-import { TNoPokemon } from './NoPokemon.styled'
+import { TNoPokemon } from "./NoPokemon.styled";
 
 type INoPokemonProps = {
-  title: string
-}
+  title: string;
+};
 
 export const NoPokemon = ({ title = "No Pokemon Found!" }: INoPokemonProps) => {
   return (
@@ -13,5 +13,5 @@ export const NoPokemon = ({ title = "No Pokemon Found!" }: INoPokemonProps) => {
       />
       <TNoPokemon.Title>{title}</TNoPokemon.Title>
     </TNoPokemon.Wrapper>
-  )
-}
+  );
+};

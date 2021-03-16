@@ -1,5 +1,5 @@
-import { css } from '@emotion/react';
-import styled from '@emotion/styled';
+import { css } from "@emotion/react";
+import styled from "@emotion/styled";
 
 const Wrapper = styled.div<{ hide?: boolean }>`
   display: flex;
@@ -16,11 +16,13 @@ const Wrapper = styled.div<{ hide?: boolean }>`
   pointer-events: none;
   opacity: 0;
 
-  ${p => !p.hide && css`
-    opacity: 1;
-    pointer-events: all;
-  `}
-`
+  ${(p) =>
+    !p.hide &&
+    css`
+      opacity: 1;
+      pointer-events: all;
+    `}
+`;
 
 const ContentWrapper = styled.div`
   display: flex;
@@ -32,56 +34,56 @@ const ContentWrapper = styled.div`
   background-color: #ffffff;
   border-radius: 4px;
   transition: all 600ms ease;
-`
+`;
 
 const PokemonImage = styled.img`
   width: 250px;
   height: 250px;
   object-fit: contain;
   z-index: 1;
-`
+`;
 
 const CatchTextStatus = styled.p`
   margin-top: 2rem;
   font-weight: 700;
   text-align: center;
   line-height: 1.5;
-  font-size: .9em;
-`
+  font-size: 0.9em;
+`;
 
 const PokemonInputName = styled.input`
   width: 100%;
   border: none;
   background-color: #ececec;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   border-radius: 4px;
   text-align: center;
   margin: 1rem 0;
-`
+`;
 
 const PokemonInputError = styled.p`
   width: 100%;
   line-height: 1.5;
-  font-size: .8em;
-  color: #CA0B00;
+  font-size: 0.8em;
+  color: #ca0b00;
   margin-bottom: 1rem;
-`
+`;
 
 const ActionButton = styled.button`
   width: 100%;
-  padding: .7rem 1.6rem;
+  padding: 0.7rem 1.6rem;
   background-color: #ececec;
   border-radius: 1000px;
   cursor: pointer;
   border: solid #ececec 1px;
-  font-size: .9em;
+  font-size: 0.9em;
   background-color: #ffcb05;
   transition: all 300ms ease;
 
   &:hover {
-    transform: scale(.9);
+    transform: scale(0.9);
   }
-`
+`;
 
 export const TCatchPokemonDialog = {
   Wrapper,
@@ -91,4 +93,4 @@ export const TCatchPokemonDialog = {
   CatchTextStatus,
   PokemonInputName,
   PokemonInputError,
-}
+};

@@ -1,17 +1,17 @@
-import styled from '@emotion/styled'
+import styled from "@emotion/styled";
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`
+`;
 
 const PokeWrapper = styled.div`
   display: flex;
   width: 100%;
   flex-wrap: wrap;
-  padding: 0 .2rem;
-`
+  padding: 0 0.2rem;
+`;
 
 const LoadingWrapper = styled.div`
   position: absolute;
@@ -22,10 +22,10 @@ const LoadingWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;
 
 export const TMyPokemon = {
   Wrapper,
   PokeWrapper,
   LoadingWrapper,
-}
+};

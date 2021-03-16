@@ -1,46 +1,44 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
-type BaseName = { name: string }
+type BaseName = { name: string };
 
 export interface IPokemon {
-  id: number
-  name: string
-  ownedName?: string
-  sprites: { front_default: string }
-  moves: [{ move: BaseName }]
-  types: [{ type: BaseName }]
-  status: boolean
+  id: number;
+  name: string;
+  ownedName?: string;
+  sprites: { front_default: string };
+  moves: [{ move: BaseName }];
+  types: [{ type: BaseName }];
+  status: boolean;
 }
 
 export interface IPokemonArgs {
-  name: string
+  name: string;
 }
 
 export interface IPokemonResult {
-  pokemon: IPokemon
+  pokemon: IPokemon;
 }
 
 export const POKEMON_GQL = gql`
-query pokemon(
-  $name: String!
-) {
-  pokemon(name: $name) {
-    id
-    name
-    sprites {
-      front_default
-    }
-    moves {
-      move {
-        name
+  query pokemon($name: String!) {
+    pokemon(name: $name) {
+      id
+      name
+      sprites {
+        front_default
       }
-    }
-    types {
-      type {
-        name
+      moves {
+        move {
+          name
+        }
       }
+      types {
+        type {
+          name
+        }
+      }
+      status
     }
-    status
   }
-}
-`
+`;

@@ -1,57 +1,55 @@
-import { useState } from 'react'
-import { myPokemonDb } from '../myPokemonDb'
-import { IPokemon } from '@graphql/pokemon.gql'
+import { useState } from "react";
+import { myPokemonDb } from "../myPokemonDb";
+import { IPokemon } from "@graphql/pokemon.gql";
 
-export const useAddMyPokemon = () => { 
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(null)
-  const [data, setData] = useState<null | IPokemon>(null)
+export const useAddMyPokemon = () => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [data, setData] = useState<null | IPokemon>(null);
 
   const addMyPokemon = async (pokemon: IPokemon) => {
+    const { id, ...props } = pokemon;
 
-    const { id, ...props } = pokemon
-    
-    let tempNumber = id
-    
-    setLoading(true)
+    let tempNumber = id;
+
+    setLoading(true);
 
     try {
       const similarName = await myPokemonDb
         .where("ownedName")
         .equalsIgnoreCase(props.ownedName ?? props.name)
-        .count()
+        .count();
 
       if (similarName) {
         tempNumber = new Date().getUTCMilliseconds();
       }
 
-      const ownedName = similarName > 0
-        ? `${props.name}-${tempNumber}`
-        : props.name
+      const ownedName =
+        similarName > 0 ? `${props.name}-${tempNumber}` : props.name;
 
       const postedData = {
         ...props,
-        ownedName
-      } as IPokemon
-    
-      await myPokemonDb.add(postedData)
-      setData(postedData)
-      setLoading(false)
+        ownedName,
+      } as IPokemon;
 
-      return postedData
-    } catch(err) {
+      await myPokemonDb.add(postedData);
+      setData(postedData);
+      setLoading(false);
+
+      return postedData;
+    } catch (err) {
       // eslint-disable-next-line no-console
-      console.log(err)
-      setError(err)
+      console.log(err);
+      setError(err);
     }
 
-    setLoading(false)
-  }
+    setLoading(false);
+  };
 
   return {
-    data, 
+    data,
     error,
     loading,
-    addMyPokemon
-  }
-}
+    addMyPokemon,
+  };
+};

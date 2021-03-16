@@ -1,4 +1,4 @@
-import styled from '@emotion/styled'
+import styled from "@emotion/styled";
 
 const Wrapper = styled.div`
   position: absolute;
@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-`
+`;
 
 const Title = styled.h1`
   font-size: 1.2em;
@@ -20,14 +20,14 @@ const Title = styled.h1`
   @media screen and (min-width: 600px) {
     font-size: 2em;
   }
-`
+`;
 
 const Image = styled.img`
   width: 200px;
-`
+`;
 
 export const TNoPokemon = {
   Title,
   Image,
-  Wrapper
-}
+  Wrapper,
+};
