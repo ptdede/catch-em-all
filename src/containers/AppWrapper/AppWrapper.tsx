@@ -24,7 +24,7 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
         <Link href="/">
           <a>
             <TAppWrapper.Image
-              src={require('../../public/logo.png')}
+              src={require('public/logo.png')}
               alt="Pokemon Logo"
             />
           </a>

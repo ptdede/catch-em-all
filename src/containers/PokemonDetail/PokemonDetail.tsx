@@ -91,7 +91,7 @@ export const PokemonDetail = () => {
               onClick={() => catchPokemon(pokemon)}
             >
               <img
-                src={require("../../public/pokeball.png")}
+                src={require("public/pokeball.png")}
                 alt="pokeball"
               />
             </TPokemonDetail.CatchWrapper>

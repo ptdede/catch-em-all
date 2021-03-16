@@ -19,18 +19,18 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@libs/*": ["libs/*"],
-      "@hooks/*": ["hooks/*"],
-      "@styles/*": ["styles/*"],
-      "@graphql/*": ["graphql/*"],
-      "@helpers/*": ["helpers/*"],
-      "@database/*": ["database/*"],
-      "@constants/*": ["constants/*"],
-      "@providers/*": ["providers/*"],
-      "@containers": ["containers"],
-      "@components": ["components"],
-      "@containers/*": ["containers/*"],
-      "@components/*": ["components/*"]
+      "@libs/*": ["src/libs/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@styles/*": ["src/styles/*"],
+      "@graphql/*": ["src/graphql/*"],
+      "@helpers/*": ["src/helpers/*"],
+      "@database/*": ["src/database/*"],
+      "@constants/*": ["src/constants/*"],
+      "@providers/*": ["src/providers/*"],
+      "@containers": ["src/containers"],
+      "@components": ["src/components"],
+      "@containers/*": ["src/containers/*"],
+      "@components/*": ["src/components/*"]
     }
   },
   "include": [
