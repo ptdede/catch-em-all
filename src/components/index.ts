@@ -1,2 +1,2 @@
-export * from "./Loading/Loading"
-export * from "./PokemonCard/PokemonCard"
+export * from "./Loading/Loading";
+export * from "./PokemonCard/PokemonCard";

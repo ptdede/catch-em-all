@@ -1,17 +1,16 @@
-
 /**
- * NOTE:: 
- * 
+ * NOTE::
+ *
  * Next has Incremental Static Regeneration (ISR) feature.
  * Next can render static page on runtime by request.
  * To enable ISR, need to implement on custom server
  * `next export` cannot build ISR page.
- * 
+ *
  * Because this project is deployed to vercel,
  * Will hide this route temporarily.
  */
 
-import { PokemonDetail } from '@containers';
+import { PokemonDetail } from "@containers";
 
 // import { POKEMON_GQL } from '@graphql/pokemon.gql';
 // import { initializeApollo } from '@libs/apolloClient';
@@ -59,4 +58,4 @@ import { PokemonDetail } from '@containers';
 //   }
 // }
 
-export default PokemonDetail
+export default PokemonDetail;

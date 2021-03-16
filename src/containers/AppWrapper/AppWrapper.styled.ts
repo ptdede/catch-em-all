@@ -10,11 +10,15 @@ const Wrapper = styled.div`
     content: "";
     width: 100%;
     height: 160px;
-    background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 72%);
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 1) 72%
+    );
     z-index: 88;
   }
-`
+`;
 
 const ImageWrapper = styled.div`
   position: fixed;
@@ -33,13 +37,13 @@ const ImageWrapper = styled.div`
     left: 4rem;
     transform: none;
   }
-`
+`;
 
 const Image = styled.img`
   width: 100%;
   height: 100%;
   object-fit: contain;
-`
+`;
 
 const ContentWrapper = styled.main`
   position: relative;
@@ -53,11 +57,11 @@ const ContentWrapper = styled.main`
     margin: 0 auto;
     padding-top: 13rem;
   }
-`
+`;
 
 export const TAppWrapper = {
   Image,
   Wrapper,
   ImageWrapper,
-  ContentWrapper
-}
+  ContentWrapper,
+};
