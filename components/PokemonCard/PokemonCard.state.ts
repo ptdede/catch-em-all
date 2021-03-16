@@ -2,7 +2,7 @@ import { useDeleteMyPokemon } from '@database/my-pokemon'
 import { useMyPokemonData } from '@providers/MyPokemonData/MyPokemonData.provider'
 import { useState } from 'react'
 
-export const usePokemonCard = () => {
+export const usePokemonCard = (name: string) => {
   const { deleteMyPokemon } = useDeleteMyPokemon()
   const { pokemons, setPokemonData } = useMyPokemonData()
   
@@ -10,7 +10,7 @@ export const usePokemonCard = () => {
 
   const releasePokemon = async (id: number) => {
 
-    const confirm = window.confirm('Are you sure you wish to release this pokemon?')
+    const confirm = window.confirm(`Are you sure you wish to release ${name}?`)
 
     if (!confirm) return
 

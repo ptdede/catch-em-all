@@ -41,7 +41,7 @@ const Image = styled.img`
   object-fit: contain;
 `
 
-const ContentWrapper = styled.div`
+const ContentWrapper = styled.main`
   position: relative;
   padding-top: 10rem;
   padding-bottom: 6rem;

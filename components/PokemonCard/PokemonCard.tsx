@@ -15,7 +15,7 @@ type PokemonCardProps = {
 
 export const PokemonCard = ({ id, href, name, image, owned, hideOwned, enableRelease }: PokemonCardProps) => {
   const { colors } = usePalette(image)
-  const { releasePokemon } = usePokemonCard()
+  const { releasePokemon } = usePokemonCard(name)
 
   return (
     <TPokemonCard.Wrapper>
@@ -28,7 +28,11 @@ export const PokemonCard = ({ id, href, name, image, owned, hideOwned, enableRel
               <TPokemonCard.Owned
                 bold={owned > 0}
               >
-                owned: { owned ?? "0"}
+                {
+                  owned > 0
+                    ? `owned: ${owned}`
+                    : "not owned"
+                }
               </TPokemonCard.Owned>
             )
           }

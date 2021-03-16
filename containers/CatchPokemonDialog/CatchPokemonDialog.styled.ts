@@ -63,7 +63,7 @@ const PokemonInputError = styled.p`
   width: 100%;
   line-height: 1.5;
   font-size: .8em;
-  color: #ff3333;
+  color: #CA0B00;
   margin-bottom: 1rem;
 `
 

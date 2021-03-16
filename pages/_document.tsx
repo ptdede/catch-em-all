@@ -4,8 +4,13 @@ const fontLink = "https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@3
 class MyDocument extends Document {
   render() {
     return (
-      <Html>
+      <Html
+        lang="en"
+      >
         <Head>
+          <title>Catch `Em All! | Pokemon</title>
+          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      
           <link
             rel="preconnect" 
             href="https://fonts.gstatic.com"
