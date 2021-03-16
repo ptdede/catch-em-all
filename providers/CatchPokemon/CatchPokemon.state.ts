@@ -46,7 +46,7 @@ export const useCatchPokemonProvider = () => {
     // Give effect waiting to catch pokemon
     await delay(3000)
 
-    const isCatched = Math.random() < 1;
+    const isCatched = Math.random() < 0.5;
     
     if (isCatched) {
       confetti({
