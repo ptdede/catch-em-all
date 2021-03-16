@@ -3,7 +3,7 @@ import { HTMLAttributes, useEffect, useRef } from "react";
 import { useWindowSize } from "react-use";
 import { TAppWrapper } from "./AppWrapper.styled";
 
-type AppWrapperProps = {} & HTMLAttributes<HTMLDivElement>;
+type AppWrapperProps = HTMLAttributes<HTMLDivElement>;
 
 export const AppWrapper = ({ children }: AppWrapperProps) => {
   const { height } = useWindowSize();
