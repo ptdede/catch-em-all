@@ -1,64 +1,81 @@
 import { useEffect, useState } from 'react'
 import { IPokemon } from '@graphql/pokemon.gql'
-import { useAddMyPokemon } from '@database/my-pokemon'
 import { delay } from '@helpers/delay'
 import confetti from "canvas-confetti";
 import { useNavigationBar } from '@providers/NavigationBar/NavigationBar.provider';
-import { useMyPokemonData } from '@providers/MyPokemonData/MyPokemonData.provider';
+import { myPokemonDb } from '@database/my-pokemon';
+
+const defaultState = {
+  pokemon: null as null | IPokemon,
+  loading: false,
+  isSuccess: false,
+  isCatching: false
+}
 
 export const useCatchPokemonProvider = () => {
-  const { addMyPokemon } = useAddMyPokemon()
-  const { pokemons, setPokemonData } = useMyPokemonData()
-
-  const [pokemon, setPokemon] = useState<null | IPokemon>(null)
-  const [loading, setLoading] = useState(false)
-  const [isSuccess, setIsSuccess] = useState(false)
-  const [isCatching, setIsCatching] = useState(false)
   const { hideNavigation } = useNavigationBar()
 
+  const [state, setState] = useState<typeof defaultState>(defaultState)
+
   useEffect(() => {
-    hideNavigation(isCatching)
-  }, [isCatching])
+    hideNavigation(state.isCatching)
+  }, [state.isCatching])
 
   const catchPokemon = async (pokemon: IPokemon) => {
-    setPokemon(pokemon)
-    setIsCatching(true)
-    setLoading(true)
+    const similarName = await myPokemonDb
+      .where("ownedName")
+      .equalsIgnoreCase(pokemon.name)
+      .count()
+
+    let tempNumber
+
+    if (similarName) {
+      tempNumber = new Date().getUTCMilliseconds();
+    }
+
+    setState(prev => ({
+      ...prev,
+      pokemon: {
+        ...pokemon,
+        ownedName: `${pokemon.name}${(tempNumber ?? "")}`
+      },
+      isCatching: true,
+      loading: true
+    }))
 
     // Give effect waiting to catch pokemon
     await delay(3000)
 
-    const isCatched = Math.random() < 0.5;
+    const isCatched = Math.random() < 1;
     
     if (isCatched) {
-      const data = await addMyPokemon(pokemon)
       confetti({
         particleCount: 200
       })
 
-      setPokemonData([
-        data,
-        ...pokemons
-      ])
-      setPokemon(data)
-      setIsSuccess(true)
+      setState(prev => ({
+        ...prev,
+        isSuccess: true
+      }))
     }
-
-    setLoading(false)
+    
+    setState(prev => ({
+      ...prev,
+      loading: false
+    }))
   }
 
   const closeCatchWindow = () => {
-    setIsCatching(false)
-    setLoading(false)
-    setIsSuccess(false)
-    setPokemon(null)
+    setState({
+      pokemon: null,
+      loading: false,
+      isSuccess: false,
+      isCatching: false
+    })
   }
 
   return {
-    pokemon,
-    loading,
-    isSuccess,
-    isCatching,
+    ...state,
     catchPokemon,
     closeCatchWindow
   }

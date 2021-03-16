@@ -45,7 +45,7 @@ export const CatchPokemonDialog = () => {
           <>
             <TCatchPokemonDialog.PokemonInputName
               onChange={(e) => setOwnedName(e.target.value)}
-              defaultValue={pokemon.ownedName}
+              defaultValue={pokemon.ownedName ?? pokemon.name}
             />
 
             {
