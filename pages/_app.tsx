@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import { AppWrapper } from '@containers'
 import { ApolloProvider } from '@apollo/client'
 import { useApollo } from '@libs/apolloClient'
@@ -10,18 +11,24 @@ const MyApp = ({ Component, pageProps }) => {
   const apolloClient = useApollo(pageProps.initialApolloState)
 
   return (
-    <ApolloProvider client={apolloClient}>
-      {globalStyles}
-      <NavigationBarProvider>
-        <MyPokemonDataProvider>
-          <CatchPokemonProvider>
-            <AppWrapper>
-              <Component {...pageProps} />
-            </AppWrapper>
-          </CatchPokemonProvider>
-        </MyPokemonDataProvider>
-      </NavigationBarProvider>
-    </ApolloProvider>
+    <>
+      <Head>
+        <title>Catch `Em All! | Pokemon</title>
+        <meta name="description" content="Explore all Pokemon in one page, showcasing Pokemon from all pokemon version and go catch em all!" key="description" />
+      </Head>
+      <ApolloProvider client={apolloClient}>
+        {globalStyles}
+        <NavigationBarProvider>
+          <MyPokemonDataProvider>
+            <CatchPokemonProvider>
+              <AppWrapper>
+                <Component {...pageProps} />
+              </AppWrapper>
+            </CatchPokemonProvider>
+          </MyPokemonDataProvider>
+        </NavigationBarProvider>
+      </ApolloProvider>
+    </>
   )
 }
 
