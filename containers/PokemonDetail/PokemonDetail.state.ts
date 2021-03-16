@@ -16,9 +16,10 @@ export const usePokemonDetail = (name: string, ownedName: string) => {
     getPokemonDetail()
   }, [ownedName])
 
-  const error = (!repoLoading && repoError) || !data || !data.pokemon.status
 
-  const loading = repoLoading || data === undefined
+  const error = (!repoLoading && !!repoError) || !data || !data.pokemon.status
+
+  const loading = (repoLoading || data === undefined) && !repoError
 
   const { colors } = usePalette(!!data && !!data.pokemon.sprites ? data.pokemon.sprites.front_default : "")
 
